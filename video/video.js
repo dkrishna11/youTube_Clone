@@ -1,5 +1,6 @@
 let cokiee=document.cookie;
 let videoId=cokiee.split("=")[1];
+console.log(videoId);
 
 setTimeout(()=>{
     if(YT){
@@ -8,7 +9,7 @@ setTimeout(()=>{
         height:"600",
         videoId,
         events:{
-            onReady:()=>{ś
+            onReady:()=>{
                 console.log("loaded")
             }
         }
