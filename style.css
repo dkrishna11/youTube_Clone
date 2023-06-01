@@ -1,15 +1,126 @@
 
 
+body{
+    background-color: black;
+}
+
 
 .contanier{
-    padding: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4 , 1fr);
+    gap:  20px ;
+    padding: 50px 30px;
+}
+
+.videoElements{
+    height: 280px;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column ;
+    position: relative ;
+}
+
+.videoElements > b {
+    position: absolute;
+    /* bottom: 55px; */
+    right: 12px;
+    background-color: black;
+    padding: 1px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: white ;
+    font-size: 14px;
+    top: calc( 70% - 60px);
+    padding: 2px 5px;
 }
 
 .videoElements >img{
-    width:300px;
-    height: 200px;
-    border-radius: 5px;
+    border-radius: 6px;
+    width: 280px;
+    height: 70%;
+    cursor: pointer;
+    transition: 0.1s ;
+    background-size: cover;
+}
+/* .videoElements > img:hover {
+    transform: scaleX(1.03) ;
+} */
+
+
+.channer-title{
+    font-weight: 800;
+    color: #ffffff ;
+    font-size: 14px;
+    margin-top: 1px;
+}
+.channel-name{
+    color: rgb(187, 187, 187) ;
+    font-size: 13px;
+    position: absolute;
+    bottom: 1px; 
+
+}
+.view-count {
+    color: rgb(187, 187, 187) ;
+    font-size: 12px;
+    position: absolute;
+    bottom: -14px;
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------media ------- */
+
+
+@media screen and (max-width:520px){
+    .contanier{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:  20px ;
+        padding: 50px 30px;
+    }
+
+    /* .videoElements{
+        height: 200px;
+        border-radius: 5px;
+        display: flex;
+        flex-flow: column ;
+        position: relative ;
+    } */
+    
+    .channer-title{
+        font-weight: 700;
+        color: #ffffff ;
+        font-size: 13px;
+        margin-top: -10px;
+    }
+    .videoElements >img{
+        border-radius: 6px;
+        width:100%;
+        height: 80%;
+        cursor: pointer;
+        transition: 0.1s ;
+        background-size: cover;
+    }
+
+    .channel-name{
+        color: rgb(187, 187, 187) ;
+        font-size: 13px;
+        position: absolute;
+        bottom: -10px; 
+    
+    }
+    .view-count {
+        color: rgb(187, 187, 187) ;
+        font-size: 12px;
+        position: absolute;
+        bottom: -26px;
+    }
 }
