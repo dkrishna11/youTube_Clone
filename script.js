@@ -1,7 +1,9 @@
 
 let key="AIzaSyB2SF1pjPde9nmMi-Y01Bw5D4uTqQNPbZA";
+localStorage.setItem("key", key);
 
 let main=document.getElementsByClassName("contanier")[0];
+
 function search(){
     let inp=document.getElementById("inp").value;
     fetchApi(inp);
@@ -11,13 +13,12 @@ function search(){
 
 async function fetchApi(inp){
     try{
-        let url=`https://www.googleapis.com/youtube/v3/search?&part=snippet&maxResults=20&q=${inp}&key=${key}`
+        let url=`https://www.googleapis.com/youtube/v3/search?&part=snippet&maxResults=15&q=${inp}&key=${key}`
         let resposnse=await fetch(url);
         let result=await resposnse.json();
         for(let i = 0 ; i < result.items.length; i++) {
             let video = result.items[i] ;
             let videoStats = await fetchStats(video.id.videoId)
-            console.log(videoStats)
             if(videoStats.items.length > 0)
                 result.items[i].videoStats = videoStats.items[0].statistics; 
                 result.items[i].duration = videoStats.items[0] && videoStats.items[0].contentDetails.duration
@@ -55,9 +56,9 @@ function addToUi(result){
         let videoElement=result.items[i];
         let element=document.createElement("div");
 
-        // Element.addEventListener("click", () => {
-        //     navigateToVideo(videoElement.id.videoId);
-        //   })
+        element.addEventListener("click", () => {
+            navigateToVideo(videoElement.id.videoId);
+          })
 
         element.className="videoElements";
         let innertext=`
@@ -96,17 +97,17 @@ function formattedData(duration) {
     return str ;
 }
 
-// function navigateToVideo(videoId){
-//     let path = `/youtube-clone/video.html`;
-//     if(videoId){
-//    // video_id: video_id
-//       document.cookie = `video_id=${videoId}; path=${path}`
-//       let linkItem = document.createElement("a");
-//       linkItem.href = "http://127.0.0.1:5500/youtube-clone/video.html"
-//       linkItem.target = "_blank" ;
-//       linkItem.click();
-//     }
-//     else {
-//       alert("Go and watch in youtube")
-//     }
-//   }
+function navigateToVideo(videoId){
+    let path = `/video/video.html`;
+    if(videoId){
+   // video_id: video_id
+      document.cookie = `video_id=${videoId}; path=${path}`
+      let linkItem = document.createElement("a");
+      linkItem.href = "http://127.0.0.1:5500/video/video.html"
+      linkItem.target = "_blank" ;
+      linkItem.click();
+    }
+    else {
+      alert("Go and watch in youtube")
+    }
+  }
