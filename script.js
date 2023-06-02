@@ -101,6 +101,7 @@ function navigateToVideo(videoId){
     let path = `/video/video.html`;
     if(videoId){
    // video_id: video_id
+        console.log(videoId)
       document.cookie = `video_id=${videoId}; path=${path}`
       let linkItem = document.createElement("a");
       linkItem.href = "http://127.0.0.1:5500/video/video.html"
