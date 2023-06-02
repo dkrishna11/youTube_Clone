@@ -13,7 +13,7 @@ function search(){
 
 async function fetchApi(inp){
     try{
-        let url=`https://www.googleapis.com/youtube/v3/search?&part=snippet&maxResults=15&q=${inp}&key=${key}`
+        let url=`https://www.googleapis.com/youtube/v3/search?&part=snippet&maxResults=25&q=${inp}&key=${key}`
         let resposnse=await fetch(url);
         let result=await resposnse.json();
         for(let i = 0 ; i < result.items.length; i++) {
