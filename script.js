@@ -110,5 +110,6 @@ function navigateToVideo(videoId){
     }
     else {
       alert("Go and watch in youtube")
-    }
+
   }
+}
